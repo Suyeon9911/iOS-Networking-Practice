@@ -1,0 +1,6 @@
+framework module Pods_Moya_Practice {
+  umbrella header "Pods-Moya_Practice-umbrella.h"
+
+  export *
+  module * { export * }
+}
