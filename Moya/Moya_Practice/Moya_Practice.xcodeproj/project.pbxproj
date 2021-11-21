@@ -13,6 +13,8 @@
 		4D3FB667274A9A6A0004A340 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3FB665274A9A6A0004A340 /* Main.storyboard */; };
 		4D3FB669274A9A6C0004A340 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D3FB668274A9A6C0004A340 /* Assets.xcassets */; };
 		4D3FB66C274A9A6C0004A340 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3FB66A274A9A6C0004A340 /* LaunchScreen.storyboard */; };
+		4D3FB678274AB15D0004A340 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3FB677274AB15D0004A340 /* UserService.swift */; };
+		4D3FB67B274ABE370004A340 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3FB67A274ABE370004A340 /* User.swift */; };
 		7557DDC66F78658AA14FB9EF /* Pods_Moya_Practice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDCC6415E893C95BA0EBA08 /* Pods_Moya_Practice.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +27,8 @@
 		4D3FB668274A9A6C0004A340 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D3FB66B274A9A6C0004A340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D3FB66D274A9A6C0004A340 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D3FB677274AB15D0004A340 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		4D3FB67A274ABE370004A340 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8BDCC6415E893C95BA0EBA08 /* Pods_Moya_Practice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moya_Practice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E5420600ACAAC21CAF6EB8C /* Pods-Moya_Practice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moya_Practice.debug.xcconfig"; path = "Target Support Files/Pods-Moya_Practice/Pods-Moya_Practice.debug.xcconfig"; sourceTree = "<group>"; };
 		D5476DC4AE0266C6C45520A3 /* Pods-Moya_Practice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moya_Practice.release.xcconfig"; path = "Target Support Files/Pods-Moya_Practice/Pods-Moya_Practice.release.xcconfig"; sourceTree = "<group>"; };
@@ -63,6 +67,7 @@
 		4D3FB65E274A9A6A0004A340 /* Moya_Practice */ = {
 			isa = PBXGroup;
 			children = (
+				4D3FB673274AAE1B0004A340 /* Networking */,
 				4D3FB65F274A9A6A0004A340 /* AppDelegate.swift */,
 				4D3FB661274A9A6A0004A340 /* SceneDelegate.swift */,
 				4D3FB663274A9A6A0004A340 /* ViewController.swift */,
@@ -74,13 +79,29 @@
 			path = Moya_Practice;
 			sourceTree = "<group>";
 		};
+		4D3FB673274AAE1B0004A340 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				4D3FB679274ABE270004A340 /* Model */,
+				4D3FB677274AB15D0004A340 /* UserService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		4D3FB679274ABE270004A340 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4D3FB67A274ABE370004A340 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		76413E9188F619E96ECA91BB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				9E5420600ACAAC21CAF6EB8C /* Pods-Moya_Practice.debug.xcconfig */,
 				D5476DC4AE0266C6C45520A3 /* Pods-Moya_Practice.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -208,6 +229,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D3FB664274A9A6A0004A340 /* ViewController.swift in Sources */,
+				4D3FB678274AB15D0004A340 /* UserService.swift in Sources */,
+				4D3FB67B274ABE370004A340 /* User.swift in Sources */,
 				4D3FB660274A9A6A0004A340 /* AppDelegate.swift in Sources */,
 				4D3FB662274A9A6A0004A340 /* SceneDelegate.swift in Sources */,
 			);
