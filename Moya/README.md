@@ -35,13 +35,18 @@
 : API란 두 시스템, 어플리케이션이 상호작용할 수 있게 하는 프로토콜의 총 집합이라면 Endpoint란 API가 서버에서 리소스에 접근 가능하게 하는 URL , 메소드(GET 등)는 같은 URL들에 대해서도 다른 요청을 하게끔 구별하게 해주는 항목
 
 
+
+
+
+
 ➕ TargetType에서 제공하는 속성들   
 1️⃣ baseURL : 서버의 base URL ->  Moya는 이를 통하여 endpoint객체 생성       
 2️⃣ path : 서버의 base URL 뒤에 추가 될 Path (일반적으로 API)    
 3️⃣ method : HTTP Method (ex. .get / .post / .delete 등등)    
 4️⃣ sampleData : 테스트용 Mock Data (테스트를 위한 목업 데이터를 제공할 때 사용)    
 5️⃣ task : request에 사용되는 파라미터 설정  
-
+6️⃣ validationType : 허용할 response의 타입    
+7️⃣ headers : HTTP headers    
  
 
 
