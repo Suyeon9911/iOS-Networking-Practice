@@ -41,11 +41,17 @@
 
 ➕ TargetType에서 제공하는 속성들   
 1️⃣ baseURL : 서버의 base URL ->  Moya는 이를 통하여 endpoint객체 생성       
+
 2️⃣ path : 서버의 base URL 뒤에 추가 될 Path (일반적으로 API)    
+
 3️⃣ method : HTTP Method (ex. .get / .post / .delete 등등)    
+
 4️⃣ sampleData : 테스트용 Mock Data (테스트를 위한 목업 데이터를 제공할 때 사용)    
+
 5️⃣ task : request에 사용되는 파라미터 설정  
+
 6️⃣ validationType : 허용할 response의 타입    
+
 7️⃣ headers : HTTP headers    
  
 
