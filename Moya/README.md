@@ -40,6 +40,8 @@
 
 
 ➕ TargetType에서 제공하는 속성들   
+
+
 1️⃣ baseURL : 서버의 base URL ->  Moya는 이를 통하여 endpoint객체 생성       
 
 2️⃣ path : 서버의 base URL 뒤에 추가 될 Path (일반적으로 API)    
