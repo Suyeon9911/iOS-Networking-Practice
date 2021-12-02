@@ -84,7 +84,6 @@ class ItemTableViewCell: UITableViewCell {
         itemPriceLabel.text = "\(data.price)원"
         likeNumberLabel.text = "7"
     }
-
 }
 
 extension ItemTableViewCell {
