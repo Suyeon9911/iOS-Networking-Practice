@@ -13,7 +13,9 @@ enum HomeService {
     case getItemData
 }
 
+
 extension HomeService: TargetType {
+
     public var baseURL: URL {
         return URL(string: GeneralAPI.baseURL)!
     }
@@ -22,7 +24,6 @@ extension HomeService: TargetType {
         switch self {
         case .getItemData:
             return "/post"
-        }
     }
 
     var method: Moya.Method {
@@ -45,6 +46,4 @@ extension HomeService: TargetType {
             return ["Content-Type": "application/json"]
         }
     }
-
-
 }
