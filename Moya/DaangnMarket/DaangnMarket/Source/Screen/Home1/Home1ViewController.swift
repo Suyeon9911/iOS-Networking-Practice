@@ -12,9 +12,10 @@ import Then
 import Moya
 
 class Home1ViewController: UIViewController {
-    
+
     private let service = MoyaProvider<HomeService>()
     var itemData: HomeItem?
+    private var itemList: [HomeItemData] = []
 
     private lazy var tableView = UITableView().then {
         $0.registerReusableCell(ItemTableViewCell.self)
@@ -55,13 +56,11 @@ class Home1ViewController: UIViewController {
         $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: -spacing)
         $0.contentEdgeInsets = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
     }
-    
+
     private let plusButton = UIButton().then {
         $0.setImage(Image.createButtonImage, for: .normal)
         $0.addTarget(self, action: #selector(buttonDidTapped(_:)), for: .touchUpInside)
     }
-    
-    private var itemList: [HomeItemData] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +76,7 @@ class Home1ViewController: UIViewController {
                 do {
                     self?.itemData = try result.map(HomeItem.self)
                     self?.itemList = self?.itemData?.data ?? []
-                    print("itemList", self?.itemList)
+                    print("itemList", self?.itemList ?? [])
                     self?.tableView.reloadData()
                 } catch(let err) {
                     print(err.localizedDescription)
