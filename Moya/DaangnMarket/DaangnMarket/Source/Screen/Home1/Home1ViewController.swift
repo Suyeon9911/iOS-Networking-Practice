@@ -56,7 +56,7 @@ class Home1ViewController: UIViewController {
         $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: -spacing)
         $0.contentEdgeInsets = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
     }
-
+    
     private let plusButton = UIButton().then {
         $0.setImage(Image.createButtonImage, for: .normal)
         $0.addTarget(self, action: #selector(buttonDidTapped(_:)), for: .touchUpInside)
@@ -69,6 +69,7 @@ class Home1ViewController: UIViewController {
         getItemData()
     }
 
+    // Network
     func getItemData() {
         service.request(.getItemData) { [weak self] response in
             switch response {
@@ -94,11 +95,6 @@ extension Home1ViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
-//    private func updateData() {
-//        let itemList = ItemListModel()
-//        self.itemList = itemList.getItemListModel()
-//    }
 }
 
 extension Home1ViewController: UITableViewDelegate {
@@ -165,12 +161,12 @@ extension Home1ViewController {
             $0.height.equalTo(20)
             $0.centerY.equalTo(headerView.snp.centerY)
         }
-        
+
         plusButton.snp.makeConstraints {
             $0.width.equalTo(plusButton.snp.height)
             $0.trailing.equalToSuperview().inset(21)
             $0.bottom.equalToSuperview().inset(103)
         }
-        
+
     }
 }

@@ -11,12 +11,13 @@ import SnapKit
 import Then
 import Kingfisher
 
-
 class ItemTableViewCell: UITableViewCell {
     private let itemImageView = UIImageView().then {
+        $0.image = Image.photoIcon
         $0.layer.cornerRadius = 5
         $0.clipsToBounds = true
         $0.contentMode = .scaleToFill
+
     }
 
     private let hStackView = UIStackView().then {
