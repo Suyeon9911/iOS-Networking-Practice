@@ -10,6 +10,10 @@
 		4D0F2842274550EA009F4BE7 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F2841274550EA009F4BE7 /* ItemTableViewCell.swift */; };
 		4D0F2847274648A5009F4BE7 /* ItemListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F2846274648A5009F4BE7 /* ItemListModel.swift */; };
 		4D0F284927464A9D009F4BE7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F284827464A9D009F4BE7 /* Item.swift */; };
+		4D23BC70275B8DFE005D27EE /* PostItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D23BC6F275B8DFE005D27EE /* PostItemResponse.swift */; };
+		4D23BC72275B8F14005D27EE /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D23BC71275B8F14005D27EE /* PostService.swift */; };
+		4D23BC74275E5FD4005D27EE /* PostItemRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D23BC73275E5FD4005D27EE /* PostItemRequest.swift */; };
+		4D23BC76275E7D13005D27EE /* UIAlert+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D23BC75275E7D13005D27EE /* UIAlert+.swift */; };
 		4D30EFEB2758A69100325DE6 /* HomeItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D30EFEA2758A69100325DE6 /* HomeItemData.swift */; };
 		4D30EFED2758A6B000325DE6 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D30EFEC2758A6B000325DE6 /* HomeService.swift */; };
 		4D30EFEF2758A6C600325DE6 /* GeneralAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D30EFEE2758A6C600325DE6 /* GeneralAPI.swift */; };
@@ -46,6 +50,10 @@
 		4D0F2841274550EA009F4BE7 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		4D0F2846274648A5009F4BE7 /* ItemListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListModel.swift; sourceTree = "<group>"; };
 		4D0F284827464A9D009F4BE7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		4D23BC6F275B8DFE005D27EE /* PostItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItemResponse.swift; sourceTree = "<group>"; };
+		4D23BC71275B8F14005D27EE /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
+		4D23BC73275E5FD4005D27EE /* PostItemRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItemRequest.swift; sourceTree = "<group>"; };
+		4D23BC75275E7D13005D27EE /* UIAlert+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlert+.swift"; sourceTree = "<group>"; };
 		4D30EFEA2758A69100325DE6 /* HomeItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemData.swift; sourceTree = "<group>"; };
 		4D30EFEC2758A6B000325DE6 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		4D30EFEE2758A6C600325DE6 /* GeneralAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAPI.swift; sourceTree = "<group>"; };
@@ -120,8 +128,11 @@
 			isa = PBXGroup;
 			children = (
 				4D30EFEA2758A69100325DE6 /* HomeItemData.swift */,
+				4D23BC73275E5FD4005D27EE /* PostItemRequest.swift */,
+				4D23BC6F275B8DFE005D27EE /* PostItemResponse.swift */,
 				4D30EFEC2758A6B000325DE6 /* HomeService.swift */,
 				4D30EFEE2758A6C600325DE6 /* GeneralAPI.swift */,
+				4D23BC71275B8F14005D27EE /* PostService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -203,6 +214,7 @@
 		DD3CA011273F96FB0050320E /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				4D30EFE92758A62000325DE6 /* Network */,
 				DD3CA014273F97B40050320E /* Support */,
 				DDBA179327415FE0001E1654 /* Extension */,
 				DD3CA015273F97C20050320E /* Screen */,
@@ -252,7 +264,6 @@
 		DD3CA01A273FA1990050320E /* Home1 */ = {
 			isa = PBXGroup;
 			children = (
-				4D30EFE92758A62000325DE6 /* Network */,
 				4D0F28452746486E009F4BE7 /* Model */,
 				4D0F2840274550C5009F4BE7 /* Cell */,
 				DD3CA01C273FA2620050320E /* Home1ViewController.swift */,
@@ -310,6 +321,7 @@
 				DDBA179627416043001E1654 /* UITableView+Reusable.swift */,
 				DDBA179B27416365001E1654 /* UICollectionView+Reusable.swift */,
 				DDBA17A627417954001E1654 /* UIButton+.swift */,
+				4D23BC75275E7D13005D27EE /* UIAlert+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -465,6 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D23BC72275B8F14005D27EE /* PostService.swift in Sources */,
 				DD1B9DF72740579E007844CB /* MainNavigationController.swift in Sources */,
 				DDBA17A727417954001E1654 /* UIButton+.swift in Sources */,
 				DD3CA024273FA2E00050320E /* MyPageViewController.swift in Sources */,
@@ -472,17 +485,20 @@
 				DDBA17A52741780A001E1654 /* TagButton.swift in Sources */,
 				4D30EFEF2758A6C600325DE6 /* GeneralAPI.swift in Sources */,
 				DD3CA02D273FA37D0050320E /* WritingViewController.swift in Sources */,
+				4D23BC76275E7D13005D27EE /* UIAlert+.swift in Sources */,
 				4D0F284927464A9D009F4BE7 /* Item.swift in Sources */,
 				DD3CA02A273FA32F0050320E /* ChattingViewController.swift in Sources */,
 				52F36583274F92BC008F8189 /* ProductTableViewCell.swift in Sources */,
 				DDBA179E27416438001E1654 /* PhotoCollectionViewCell.swift in Sources */,
 				DD3C9FFE273F96D30050320E /* AppDelegate.swift in Sources */,
 				DDBA179A274162A1001E1654 /* PhotoTableViewCell.swift in Sources */,
+				4D23BC74275E5FD4005D27EE /* PostItemRequest.swift in Sources */,
 				DDBA17A92741823C001E1654 /* TextViewTableViewCell.swift in Sources */,
 				4D0F2847274648A5009F4BE7 /* ItemListModel.swift in Sources */,
 				4D30EFED2758A6B000325DE6 /* HomeService.swift in Sources */,
 				DD1B9E062740610C007844CB /* Color.swift in Sources */,
 				DDBA179727416043001E1654 /* UITableView+Reusable.swift in Sources */,
+				4D23BC70275B8DFE005D27EE /* PostItemResponse.swift in Sources */,
 				DD3CA027273FA31B0050320E /* MyTownViewController.swift in Sources */,
 				DD3CA021273FA2AD0050320E /* TabBarController.swift in Sources */,
 				DD3CA01F273FA2750050320E /* Home2ViewController.swift in Sources */,

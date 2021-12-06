@@ -9,8 +9,12 @@ import UIKit
 
 import SnapKit
 import Then
+import Moya
 
 final class WritingViewController: UIViewController {
+
+    let postService = MoyaProvider<PostService>()
+
 
     private lazy var closeButton = UIButton().then {
         $0.setImage(UIImage(systemName: "xmark"), for: .normal)
@@ -51,6 +55,40 @@ final class WritingViewController: UIViewController {
         setLayouts()
         setToolbar()
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
+    }
+
+    func postItem(title: String,
+                  category: String,
+                  price: String,
+                  state: String,
+                  trade: String,
+                  content: String,
+                  completion: @escaping ((Int, String) -> ())) {
+//        guard let title = TextFieldTableViewCell.textField.text,
+//              let
+
+        postService.request(PostService.postItem(title: title, category: category, price: price, state: state, trade: trade, content: content)) { [weak self] response in
+            guard let self = self else { return }
+
+            switch response {
+            case .success(let result):
+                do {
+                    let data = try result.map(PostItemResponse.self)
+                    self.makeAlert(title: "게시글 작성", message: data.message, okAction: { _ in
+                        self.dismiss(animated: true, completion: nil)
+                    })
+
+                    completion(data.status, data.message)
+
+                } catch(let err) {
+                    print(err.localizedDescription)
+                    completion(400, "파라미터 값이 잘못되었습니다.")
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+                completion(500, "서버 내부 에러")
+            }
+        }
     }
 }
 
@@ -100,9 +138,8 @@ extension WritingViewController {
     private func buttonDidTapped(_ sender: UIButton) {
         switch sender {
         case closeButton:
-            dismiss(animated: true, completion: nil)
+            navigationController?.popViewController(animated: true)
         case doneButton:
-            // TODO:- 통신 구현시 disabled 구현
             dismiss(animated: true, completion: nil)
         default:
             break
