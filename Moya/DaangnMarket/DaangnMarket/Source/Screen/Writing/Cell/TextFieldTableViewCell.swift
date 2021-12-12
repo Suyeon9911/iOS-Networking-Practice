@@ -12,14 +12,17 @@ enum TextFieldCellType {
     case button
 }
 
-final class TextFieldTableViewCell: UITableViewCell {
+class TextFieldTableViewCell: UITableViewCell {
+
+    //var postDelegate: PostItemDelegate?
+
     public var type: TextFieldCellType = .plain {
         didSet {
             setLayouts()
         }
     }
 
-    private let textField = UITextField().then {
+    let textField = UITextField().then {
         $0.borderStyle = .none
     }
 
@@ -43,6 +46,24 @@ final class TextFieldTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        switch type {
+        case .plain:
+            NotificationCenter.default.addObserver(self, selector: #selector(testData), name: NSNotification.Name("test"), object: nil)
+            //self.postDelegate?.titleDataSend(title: textField.text ?? "")
+        case .button:
+            NotificationCenter.default.addObserver(self, selector: #selector(testData), name: NSNotification.Name("test"), object: nil)
+            //self.postDelegate?.priceDataSend(price: textField.text ?? "")
+        }
+    }
+
+    @objc func testData(notification: NSNotification) {
+        switch type {
+        case .plain:
+            NotificationCenter.default.post(name: NSNotification.Name("title"), object: textField.text ?? "")
+        case .button:
+            NotificationCenter.default.post(name: NSNotification.Name("price"), object: textField.text ?? "")
+        }
     }
 
     required init?(coder: NSCoder) {
@@ -58,7 +79,7 @@ extension TextFieldTableViewCell {
     }
 }
 
-extension TextFieldTableViewCell {
+extension TextFieldTableViewCell: UITextFieldDelegate {
    @objc
     private func buttonDidTapped(_ sender: UIButton) {
         checkButton.isSelected.toggle()

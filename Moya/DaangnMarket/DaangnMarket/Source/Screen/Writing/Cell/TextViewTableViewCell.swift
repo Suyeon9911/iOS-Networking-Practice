@@ -14,7 +14,9 @@ protocol TableViewCellDelegate: AnyObject {
 final class TextViewTableViewCell: UITableViewCell {
     weak var delegate: TableViewCellDelegate?
 
-    private let textView = UITextView().then {
+    //var postDelegate: PostItemDelegate?
+
+    let textView = UITextView().then {
         $0.isScrollEnabled = false
         $0.sizeToFit()
         $0.font = .systemFont(ofSize: 15, weight: .semibold)
@@ -27,6 +29,12 @@ final class TextViewTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         textView.delegate = self
         setLayouts()
+        //self.postDelegate?.contentDataSend(content: textView.text ?? "")
+        NotificationCenter.default.addObserver(self, selector: #selector(testData), name: NSNotification.Name("test"), object: nil)
+    }
+
+    @objc func testData(notification: NSNotification) {
+        NotificationCenter.default.post(name: NSNotification.Name("content"), object: textView.text ?? "")
     }
 
     required init?(coder: NSCoder) {
