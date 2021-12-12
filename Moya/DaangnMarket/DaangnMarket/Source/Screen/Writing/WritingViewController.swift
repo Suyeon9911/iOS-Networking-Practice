@@ -15,6 +15,9 @@ final class WritingViewController: UIViewController {
 
     let postService = MoyaProvider<PostService>()
 
+    var receivedTitle: String?
+    var receivedPrice: String?
+    var receivedContent: String?
 
     private lazy var closeButton = UIButton().then {
         $0.setImage(UIImage(systemName: "xmark"), for: .normal)
@@ -55,6 +58,10 @@ final class WritingViewController: UIViewController {
         setLayouts()
         setToolbar()
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
+
+        NotificationCenter.default.addObserver(self, selector: #selector(titleReceived), name: NSNotification.Name("title"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(priceReceived), name: NSNotification.Name("price"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(contentReceived), name: NSNotification.Name("content"), object: nil)
     }
 
     func postItem(title: String,
@@ -62,12 +69,8 @@ final class WritingViewController: UIViewController {
                   price: String,
                   state: String,
                   trade: String,
-                  content: String,
-                  completion: @escaping ((Int, String) -> ())) {
-//        guard let title = TextFieldTableViewCell.textField.text,
-//              let
-
-        postService.request(PostService.postItem(title: title, category: category, price: price, state: state, trade: trade, content: content)) { [weak self] response in
+                  content: String) {
+        postService.request(PostService.postItem(title: title,category: category, price: price, state: state, trade: trade, content: content)) { [weak self] response in
             guard let self = self else { return }
 
             switch response {
@@ -75,18 +78,15 @@ final class WritingViewController: UIViewController {
                 do {
                     let data = try result.map(PostItemResponse.self)
                     self.makeAlert(title: "게시글 작성", message: data.message, okAction: { _ in
-                        self.dismiss(animated: true, completion: nil)
+                        self.navigationController?.isToolbarHidden = true
+                        self.navigationController?.popToRootViewController(animated: true)
                     })
-
-                    completion(data.status, data.message)
 
                 } catch(let err) {
                     print(err.localizedDescription)
-                    completion(400, "파라미터 값이 잘못되었습니다.")
                 }
             case .failure(let err):
                 print(err.localizedDescription)
-                completion(500, "서버 내부 에러")
             }
         }
     }
@@ -138,13 +138,41 @@ extension WritingViewController {
     private func buttonDidTapped(_ sender: UIButton) {
         switch sender {
         case closeButton:
+            navigationController?.isToolbarHidden = true
             navigationController?.popViewController(animated: true)
         case doneButton:
-            dismiss(animated: true, completion: nil)
+            NotificationCenter.default.post(name: NSNotification.Name("test"), object: nil)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+              // 1초 후 실행될 부분
+                self.postItem(title: self.receivedTitle ?? "", category: "스포츠/레저", price: self.receivedPrice ?? "", state: "중고", trade: "대면", content: self.receivedContent ?? "")
+            }
+            self.dismiss(animated: true, completion: nil)
         default:
             break
         }
     }
+
+    @objc func titleReceived(notification: NSNotification){
+        if let text = notification.object as? String {
+            receivedTitle = text
+        }
+        print("\(receivedTitle)")
+    }
+
+    @objc func priceReceived(notification: NSNotification){
+        if let text = notification.object as? String {
+            receivedPrice = text
+        }
+        print("\(receivedPrice)")
+    }
+
+    @objc func contentReceived(notification: NSNotification){
+        if let text = notification.object as? String {
+            receivedContent = text
+        }
+        print("\(receivedContent)")
+    }
+
 }
 
 extension WritingViewController: UITableViewDelegate {
@@ -178,6 +206,7 @@ extension WritingViewController: UITableViewDataSource {
             let cell: TextFieldTableViewCell = tableView.dequeueReusableCell(indexPath: indexPath)
             cell.type = .plain
             cell.setPlaceholder(with: "글 제목")
+            //cell.postDelegate = self
             return cell
         case 2:
             let cell = UITableViewCell()
@@ -205,6 +234,8 @@ extension WritingViewController: UITableViewDataSource {
             let cell: TextFieldTableViewCell = tableView.dequeueReusableCell(indexPath: indexPath)
             cell.type = .button
             cell.setPlaceholder(with: "₩ 가격")
+            //cell.postDelegate = self
+
             return cell
         case 4:
             let cell: TagTableViewCell = tableView.dequeueReusableCell(indexPath: indexPath)
@@ -220,6 +251,8 @@ extension WritingViewController: UITableViewDataSource {
         case 6:
             let cell: TextViewTableViewCell = tableView.dequeueReusableCell(indexPath: indexPath)
             cell.delegate = self
+            //cell.postDelegate = self
+            
             return cell
         default:
             return UITableViewCell()

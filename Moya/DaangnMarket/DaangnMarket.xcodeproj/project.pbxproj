@@ -17,6 +17,8 @@
 		4D30EFEB2758A69100325DE6 /* HomeItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D30EFEA2758A69100325DE6 /* HomeItemData.swift */; };
 		4D30EFED2758A6B000325DE6 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D30EFEC2758A6B000325DE6 /* HomeService.swift */; };
 		4D30EFEF2758A6C600325DE6 /* GeneralAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D30EFEE2758A6C600325DE6 /* GeneralAPI.swift */; };
+		4DE580E5276608D600D40F99 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE580E4276608D600D40F99 /* UIViewController+.swift */; };
+		4DE580E82766090C00D40F99 /* PostItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE580E72766090C00D40F99 /* PostItemDelegate.swift */; };
 		52F36583274F92BC008F8189 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F36582274F92BC008F8189 /* ProductTableViewCell.swift */; };
 		5EFED3B8B27EDAEE073DF854 /* Pods_DaangnMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7BA5C6C7DB48740F6C2EB1D /* Pods_DaangnMarket.framework */; };
 		DD1B9DF72740579E007844CB /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1B9DF62740579E007844CB /* MainNavigationController.swift */; };
@@ -57,6 +59,8 @@
 		4D30EFEA2758A69100325DE6 /* HomeItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemData.swift; sourceTree = "<group>"; };
 		4D30EFEC2758A6B000325DE6 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		4D30EFEE2758A6C600325DE6 /* GeneralAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAPI.swift; sourceTree = "<group>"; };
+		4DE580E4276608D600D40F99 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		4DE580E72766090C00D40F99 /* PostItemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItemDelegate.swift; sourceTree = "<group>"; };
 		52F36582274F92BC008F8189 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		C7BA5C6C7DB48740F6C2EB1D /* Pods_DaangnMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DaangnMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1B9DF62740579E007844CB /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
@@ -137,6 +141,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		4DE580E6276608EC00D40F99 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4DE580E72766090C00D40F99 /* PostItemDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		52F36581274F91B0008F8189 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +226,7 @@
 		DD3CA011273F96FB0050320E /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				4DE580E6276608EC00D40F99 /* Protocols */,
 				4D30EFE92758A62000325DE6 /* Network */,
 				DD3CA014273F97B40050320E /* Support */,
 				DDBA179327415FE0001E1654 /* Extension */,
@@ -322,6 +335,7 @@
 				DDBA179B27416365001E1654 /* UICollectionView+Reusable.swift */,
 				DDBA17A627417954001E1654 /* UIButton+.swift */,
 				4D23BC75275E7D13005D27EE /* UIAlert+.swift */,
+				4DE580E4276608D600D40F99 /* UIViewController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -483,10 +497,12 @@
 				DD3CA024273FA2E00050320E /* MyPageViewController.swift in Sources */,
 				4D30EFEB2758A69100325DE6 /* HomeItemData.swift in Sources */,
 				DDBA17A52741780A001E1654 /* TagButton.swift in Sources */,
+				4DE580E5276608D600D40F99 /* UIViewController+.swift in Sources */,
 				4D30EFEF2758A6C600325DE6 /* GeneralAPI.swift in Sources */,
 				DD3CA02D273FA37D0050320E /* WritingViewController.swift in Sources */,
 				4D23BC76275E7D13005D27EE /* UIAlert+.swift in Sources */,
 				4D0F284927464A9D009F4BE7 /* Item.swift in Sources */,
+				4DE580E82766090C00D40F99 /* PostItemDelegate.swift in Sources */,
 				DD3CA02A273FA32F0050320E /* ChattingViewController.swift in Sources */,
 				52F36583274F92BC008F8189 /* ProductTableViewCell.swift in Sources */,
 				DDBA179E27416438001E1654 /* PhotoCollectionViewCell.swift in Sources */,
